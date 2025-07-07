@@ -5,6 +5,8 @@
   <title>SLAY STORE</title>
   <style>
     body {
+  margin: 0;
+  padding: 0;
       background-color: black;
       color: white;
       font-family: sans-serif;
@@ -392,5 +394,52 @@
   /* مخفی کردن اسکرول در ظاهر (اختیاری) */
   .product-container::-webkit-scrollbar {
     display: none;
+  }
+</style>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  .product-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    white-space: nowrap;
+    background-color: black;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .product {
+    background-color: #111;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    min-width: 250px;
+    color: white;
+    flex: 0 0 auto;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .product h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+  }
+
+  .product p {
+    margin: 0;
+    font-size: 15px;
   }
 </style>
