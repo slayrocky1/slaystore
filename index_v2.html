@@ -97,7 +97,7 @@
   <div class="overlay"></div>
 
   <div class="menu-button" onclick="toggleMenu()"> ☰</div>
-  <div class="dropdown" id="dropdownMenu">
+  <div class="dropdown" id="menuitem">
     <a href="men.html">مردانه</a>
     <a href="women.html">زنانه</a>
   </div>
@@ -129,3 +129,13 @@
     <a href="#order">Order</a> <!-- 🆕 سفارش -->
   </div>
 </div>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menuItems");
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  }
+</script>
