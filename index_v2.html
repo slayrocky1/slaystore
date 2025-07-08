@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Slay Store</title>
   <style>
-    <div class="order-box">
-  <p>Order via <a href="https://wa.me/989915580973" target="_blank">WhatsApp</a> &
-    <a href="https://t.me/slaybrand" target="_blank">Telegram</a></p>
-</div>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-image: url("photo_2025-07-07_17-53-21.jpg"); /* اسم فایل عکس موتور */
+      background-image: url("photo_2025-07-07_17-53-21.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -28,6 +25,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      z-index: 1;
     }
 
     .content {
@@ -59,118 +57,94 @@
       letter-spacing: 1px;
     }
 
-    .menu-button {
+    .menu-icon {
       position: absolute;
       top: 20px;
-      right: 30px;
+      right: 20px;
       z-index: 3;
+      font-size: 28px;
+      color: white;
       cursor: pointer;
-      font-size: 24px;
     }
 
-    .dropdown {
-      position: absolute;
-      top: 60px;
-      right: 30px;
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      overflow: hidden;
+    .menu-items {
       display: none;
       flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 10px;
+      border-radius: 10px;
       z-index: 3;
     }
 
-    .dropdown a {
+    .menu-items a {
       color: white;
-      padding: 12px 20px;
       text-decoration: none;
-      display: block;
+      padding: 8px 0;
     }
 
-    .dropdown a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .menu-items a:hover {
+      color: #00ffcc;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      z-index: 2;
+    }
+
+    .footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
   <div class="overlay"></div>
 
-  <div class="menu-button" onclick="toggleMenu()"> ☰</div>
-  <div class="dropdown" id="menuitem">
-    <a href="men.html">مردانه</a>
-    <a href="women.html">زنانه</a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <div class="menu-items" id="menuItems">
+    <a href="men.html">Men</a>
+    <a href="women.html">Women</a>
+    <a href="#order">Order</a>
   </div>
 
   <div class="content">
     <h1>Welcome to Slay Store</h1>
     <h2>WEAR THE POWER</h2>
     <p>
-      — athle lifestyle <br />
-      — racing <br />
+      — athle lifestyle <br>
+      — racing <br>
       Together with high energy
+    </p>
+  </div>
+
+  <div class="footer" id="order">
+    <p>To place an order, go to the order registration section in the three dots at the top of the page.</p>
+    <p>
+      Order via 
+      <a href="https://wa.me/989915580973" target="_blank">WhatsApp</a>, 
+      <a href="https://t.me/slaybrand" target="_blank">Telegram</a>, 
+      <a href="https://instagram.com/slay.gym" target="_blank">Instagram</a>
     </p>
   </div>
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById("dropdownMenu");
+      const menu = document.getElementById("menuItems");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
   </script>
 </body>
 </html>
-<a href="index.html">Go to old homepage</a>
-
-<div class="menu-container">
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <div class="menu-items" id="menuItems">
-    <a href="#men">Men</a>
-    <a href="#women">Women</a>
-    <a href="#order">Order</a> <!-- 🆕 سفارش -->
-  </div>
-</div>
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("menuItems");
-    if (menu.style.display === "flex") {
-      menu.style.display = "none";
-    } else {
-      menu.style.display = "flex";
-    }
-  }
-</script>
-<style>
-.menu-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-.menu-icon {
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-}
-
-.menu-items {
-  display: none;
-  flex-direction: column;
-  background-color: #000;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.menu-items a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 0;
-}
-
-.menu-items a:hover {
-  color: #00ffcc;
-}
-</style>
