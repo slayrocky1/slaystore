@@ -351,8 +351,9 @@
     تماس با پشتیبانی: +989915580973<br>
     طراحی شده برای برند SLAY
   </footer>
-    .hero {
-      background-image: url('photo_2025-07-07_14-58-34.jpg'); /* عکس مدل */
+    .hero 
+  
+    {  background-image: url('photo_2025-07-07_14-58-34.jpg'); /* عکس مدل */
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -399,7 +400,7 @@
   </section>
 </body>
 </html>
-<a href="index_v2.html">Go to new homepage</a>
+<a href="index_v2.html"> Go to new homepage</a>
 <div class="menu-button" onclick="toggleMenu()">
   <div></div>
   <div></div>
@@ -463,12 +464,8 @@
     const menu = document.getElementById("menu");
     menu.style.display = menu.style.display === "block" ? "none" : "block";
   }
-</script>  
-
-  /* مخفی کردن اسکرول در ظاهر (اختیاری) */
-  .product-container::-webkit-scrollbar {
-    display: none;
-  }
+</script>
+  
 </style>
 <style>
   html, body {
@@ -525,4 +522,10 @@
 direction: ltr;          /* متن چپ‌چین (Left-to-Right) */
   text-align: left;        /* تراز چپ برای متن‌ها */
   font-family: Arial, sans-serif;  /* فونت انگلیسی خوانا */
+}
+
+.en-text {
+  direction: ltr;
+  text-align: left;
+  font-family: Arial, sans-serif;
 }
