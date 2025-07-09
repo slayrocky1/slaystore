@@ -471,21 +471,60 @@
     <a href="#order">Order</a>
     <a href="#contact">Contact</a>
   </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slay Models</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
 
-  <!-- محصولات -->
-  <div class="product-container" id="products">
-    <div class="product">
-      <img src="product1.jpg" alt="Product 1" />
-      <h3>Product Title 1</h3>
-      <p>$29.99</p>
-    </div>
-    <div class="product">
-      <img src="product2.jpg" alt="Product 2" />
-      <h3>Product Title 2</h3>
-      <p>$34.99</p>
-    </div>
-    <!-- می‌تونی محصولات بیشتری اضافه کنی -->
+    .model-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .model-gallery img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .model-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Slay Brand – Worn by Models</h2>
+
+  <div class="model-gallery">
+    <img src="photo_2025-07-09_17-09-52.jpg" alt="Model 1 wearing Slay">
+    <img src="photo_2025-07-09_17-10-17.jpg" alt="Model 2 wearing Slay">
   </div>
+
+</body>
+</html>
 
   <!-- بخش سفارش -->
   <div id="order" class="order-section">
