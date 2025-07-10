@@ -659,3 +659,81 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Text Color</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .content {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .light-text {
+      color: white;
+    }
+
+    .dark-text {
+      color: black;
+    }
+
+    /* فقط برای تست: دکمه تغییر پس‌زمینه */
+    .toggle-btn {
+      margin-top: 2rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: gray;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body style="background-color: black;">
+  <div class="content" id="text">
+    این یک متن نمونه است که رنگ آن بر اساس پس‌زمینه تغییر می‌کند.
+  </div>
+
+  <!-- دکمه تست تغییر رنگ پس‌زمینه -->
+  <button class="toggle-btn" onclick="toggleBackground()">تغییر رنگ پس‌زمینه</button>
+
+  <script>
+    function updateTextColor() {
+      const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+      const textEl = document.getElementById('text');
+
+      // بررسی رنگ پس‌زمینه (RGB)
+      if (bodyBg === 'rgb(0, 0, 0)') {
+        textEl.classList.add('light-text');
+        textEl.classList.remove('dark-text');
+      } else {
+        textEl.classList.add('dark-text');
+        textEl.classList.remove('light-text');
+      }
+    }
+
+    function toggleBackground() {
+      const currentBg = document.body.style.backgroundColor;
+      if (currentBg === 'black') {
+        document.body.style.backgroundColor = 'white';
+      } else {
+        document.body.style.backgroundColor = 'black';
+      }
+      updateTextColor();
+    }
+
+    // تنظیم اولیه
+    updateTextColor();
+  </script>
+</body>
+</html>
