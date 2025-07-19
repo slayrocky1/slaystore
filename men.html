@@ -44,8 +44,45 @@
       <h3>Slay Black Fit T-Shirt</h3>
       <p>598 tm</p>
       <p>Slim fit – universal size</p>
-<div id="m" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;z-index:1000">
-  <img src="photo_2025-07-18_17-43-45.jpg" style="max-width:90%;max-height:90%;border-radius:8px"
+    <!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .btn {
+      background: #000;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<button class="btn" onclick="document.getElementById('modal').style.display='flex'">مشاهده تن‌خور</button>
+
+<div id="modal" class="modal" onclick="this.style.display='none'">
+  <img src="photo_2025-07-18_17-43-45.jpg" alt="تن‌خور">
+</div>
+
+</body>
+</html>
       <label for="quantity">Quantity:</label>
 <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 60px; padding: 5px; margin-right: 10px;">
       <a class="order-btn" href="https://wa.me/989915580973">Order from WhatsApp</a>
