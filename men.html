@@ -44,45 +44,82 @@
       <h3>Slay Black Fit T-Shirt</h3>
       <p>598 tm</p>
       <p>Slim fit – universal size</p>
-    <!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <style>
-    .btn {
-      background: #000;
-      color: #fff;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
+<style>
+  .order-btn {
+    background: #000;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 
-<button class="btn" onclick="document.getElementById('modal').style.display='flex'">مشاهده تن‌خور</button>
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
 
-<div id="modal" class="modal" onclick="this.style.display='none'">
-  <img src="photo_2025-07-18_17-43-45.jpg" alt="تن‌خور">
+  .modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 500px; /* ✅ عرض محدود در دسکتاپ */
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .close-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+
+<!-- دکمه -->
+<button onclick="openModal(['photo_2025-07-18_17-43-55.jpg'])" class="order-btn">مشاهده تن‌خور</button>
+
+<!-- مدال -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div id="modal-images"></div>
+    <button class="close-btn" onclick="closeModal()">بستن</button>
+  </div>
 </div>
 
-</body>
-</html>
+<script>
+function openModal(images) {
+  const modal = document.getElementById('modal');
+  const container = document.getElementById('modal-images');
+  container.innerHTML = '';
+  images.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    container.appendChild(img);
+  });
+  modal.style.display = 'flex';
+}
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+</script>
       <label for="quantity">Quantity:</label>
 <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 60px; padding: 5px; margin-right: 10px;">
       <a class="order-btn" href="https://wa.me/989915580973">Order from WhatsApp</a>
