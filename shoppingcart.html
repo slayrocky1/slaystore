@@ -70,5 +70,23 @@
 </body>
 </html>
 
+<h2>Shopping Cart</h2>
+<ul id="cart-list"></ul>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartList = document.getElementById('cart-list');
+
+  if (cart.length === 0) {
+    cartList.innerHTML = '<li>Your cart is empty.</li>';
+  } else {
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = ${item.name} - $${item.price};
+      cartList.appendChild(li);
+    });
+  }
+</script>
+
 
 ---
