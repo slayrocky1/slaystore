@@ -1,0 +1,33 @@
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- دکمه Add to Cart -->
+<button class="add-to-cart-btn" onclick="addToCart('Red Lipstick', 12.99)">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+</button>
+
+<style>
+  .add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .add-to-cart-btn i {
+    margin-right: 5px;
+  }
+</style>
+
+<script>
+  function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'shoppingcart.html';
+  }
+</script>
