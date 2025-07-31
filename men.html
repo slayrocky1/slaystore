@@ -122,142 +122,35 @@ function closeModal() {
 </script>
       <label for="quantity">Quantity:</label>
 <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 60px; padding: 5px; margin-right: 10px;">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Product Page</title>
+<!-- Font Awesome برای آیکون -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- فونت آوسام برای آیکون -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<!-- دکمه Add to Cart -->
+<a href="cart.index" class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+</a>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0 20px;
-    }
+<style>
+  .add-to-cart-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
 
-    /* نوار بالای صفحه */
-    .top-bar {
-      background-color: #28a745; /* سبز */
-      height: 50px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  .add-to-cart-btn i {
+    margin-right: 6px;
+  }
 
-    /* آیکون سبد خرید */
-    .cart-icon {
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .cart-icon:hover {
-      color: #d4f0c0;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -6px;
-      right: -10px;
-      background: #dc3545;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* محصول */
-    .product {
-      max-width: 300px;
-      margin: 50px auto;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    /* دکمه کوچک سبز */
-    .add-to-cart-btn {
-      background-color: #28a745; /* سبز */
-      color: white;
-      border: none;
-      padding: 6px 12px;       /* کوچیک‌تر */
-      border-radius: 6px;
-      font-size: 14px;         /* فونت مناسب */
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 15px;
-    }
-
-    .add-to-cart-btn:hover {
-      background-color: #218838;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="top-bar">
-    <div class="cart-icon" onclick="goToCart()">
-      <i class="fas fa-shopping-cart"></i>
-      <div id="cart-count" class="cart-count" style="display:none;">0</div>
-    </div>
-  </div>
-
-  <div class="product">
-    <h3>Red Lipstick</h3>
-    <p>Price: $12.99</p>
-    <button class="add-to-cart-btn" onclick="addToCart('red-lipstick')">
-      Add to Cart
-    </button>
-  </div>
-
-  <script>
-    function addToCart(productId) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(productId);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-      window.location.href = 'cart.html';  // می‌تونی حذف کنی اگر نمی‌خوای بلافاصله بری سبد خرید
-    }
-
-    function goToCart() {
-      window.location.href = 'cart.html';
-    }
-
-    function updateCartCount() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const countElem = document.getElementById('cart-count');
-      if (cart.length > 0) {
-        countElem.style.display = 'flex';
-        countElem.textContent = cart.length;
-      } else {
-        countElem.style.display = 'none';
-      }
-    }
-
-    window.onload = updateCartCount;
-  </script>
-
-</body>
-</html>
+  .add-to-cart-btn:hover {
+    background-color: #218838;
+  }
+</style>
       <a class="order-btn" href="https://wa.me/989915580973">Order from WhatsApp</a>
       <a class="order-btn" href="https://t.me/slaybrand" target="_blank">Order from Telegram</a>
     </div>
