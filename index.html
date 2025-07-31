@@ -455,6 +455,39 @@
     <a href="#order">Order</a>
   </div>
 
+  <!-- Font Awesome برای آیکون -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- آیکون سبد خرید بالا سمت چپ -->
+<div class="cart-top-left">
+  <a href="shoppingcart.html">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+</div>
+
+<style>
+  body {
+    background-color: #222; /* فقط برای دیدن آیکون سفید در پس‌زمینه تیره */
+  }
+
+  .cart-top-left {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+  }
+
+  .cart-top-left a {
+    color: white; /* سفید */
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  .cart-top-left a:hover {
+    color: #ccc; /* خاکستری روشن هنگام هاور */
+  }
+</style>
+
   <!-- بخش مدل‌ها -->
 
   <h2>Worn by Models</h2>
