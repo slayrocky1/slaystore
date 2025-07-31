@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Page</title>
+  
+  <!-- Font Awesome برای آیکون -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    .add-to-cart-btn {
+      background-color: #28a745; /* سبز */
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #218838;
+    }
+
+    .product {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .product h3 {
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="product">
+    <h3>Red Lipstick</h3>
+    <p>Price: $12.99</p>
+    <button class="add-to-cart-btn" onclick="addToCart('red-lipstick')">
+      <i class="fas fa-shopping-cart"></i> Add to Cart
+    </button>
+  </div>
+
+  <script>
+    function addToCart(productId) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'cart.html';  // هدایت به صفحه سبد خرید
+    }
+  </script>
+
+</body>
+</html>
+
+
+---
