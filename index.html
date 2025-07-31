@@ -263,6 +263,146 @@
     <a href="#order">Order</a>
   </div>
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Page</title>
+
+  <!-- فونت آوسام برای آیکون -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    /* استایل نوار بالای صفحه */
+    .top-bar {
+      background-color: #28a745; /* سبز */
+      height: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* دکمه آیکون سبد خرید */
+    .cart-icon {
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-icon:hover {
+      color: #d4f0c0;
+    }
+
+    /* اگر میخوای تعداد آیتم‌های داخل سبد رو هم نشون بدی */
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: #dc3545;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* محتوای محصول */
+    .product {
+      max-width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .add-to-cart-btn {
+      background-color: #28a745; /* سبز */
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="cart-icon" onclick="goToCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <div id="cart-count" class="cart-count" style="display:none;">0</div>
+    </div>
+  </div>
+
+  <div class="product">
+    <h3>Red Lipstick</h3>
+    <p>Price: $12.99</p>
+    <button class="add-to-cart-btn" onclick="addToCart('red-lipstick')">
+      <i class="fas fa-shopping-cart"></i> Add to Cart
+    </button>
+  </div>
+
+  <script>
+    function addToCart(productId) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      window.location.href = 'cart.html';  // می‌تونی حذفش کنی اگه نمی‌خوای مستقیم بری سبد
+    }
+
+    function goToCart() {
+      window.location.href = 'cart.html';
+    }
+
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const countElem = document.getElementById('cart-count');
+      if (cart.length > 0) {
+        countElem.style.display = 'flex';
+        countElem.textContent = cart.length;
+      } else {
+        countElem.style.display = 'none';
+      }
+    }
+
+    // به محض بارگذاری صفحه تعداد سبد رو آپدیت کن
+    window.onload = updateCartCount;
+  </script>
+
+</body>
+</html>
+
   <!-- لوگو -->
   <div class="logo">
     <a href="index.html"><img src="photo_2025-07-07_17-04-03.jpg" alt="Slay Logo"></a>
