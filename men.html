@@ -127,29 +127,62 @@ function closeModal() {
 <head>
   <meta charset="UTF-8" />
   <title>Product Page</title>
-  
-  <!-- Font Awesome برای آیکون -->
+
+  <!-- فونت آوسام برای آیکون -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    .add-to-cart-btn {
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    /* نوار بالای صفحه */
+    .top-bar {
       background-color: #28a745; /* سبز */
+      height: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* آیکون سبد خرید */
+    .cart-icon {
       color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 16px;
+      font-size: 24px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 8px;
     }
 
-    .add-to-cart-btn:hover {
-      background-color: #218838;
+    .cart-icon:hover {
+      color: #d4f0c0;
     }
 
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: #dc3545;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* محصول */
     .product {
       max-width: 300px;
       margin: 50px auto;
@@ -158,27 +191,41 @@ function closeModal() {
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
-      font-family: Arial, sans-serif;
     }
 
-    .product h3 {
-      margin-bottom: 10px;
+    /* دکمه کوچک سبز */
+    .add-to-cart-btn {
+      background-color: #28a745; /* سبز */
+      color: white;
+      border: none;
+      padding: 6px 12px;       /* کوچیک‌تر */
+      border-radius: 6px;
+      font-size: 14px;         /* فونت مناسب */
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
     }
 
-    .product p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #555;
+    .add-to-cart-btn:hover {
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
 
+  <div class="top-bar">
+    <div class="cart-icon" onclick="goToCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <div id="cart-count" class="cart-count" style="display:none;">0</div>
+    </div>
+  </div>
+
   <div class="product">
     <h3>Red Lipstick</h3>
     <p>Price: $12.99</p>
     <button class="add-to-cart-btn" onclick="addToCart('red-lipstick')">
-      <i class="fas fa-shopping-cart"></i> Add to Cart
+      Add to Cart
     </button>
   </div>
 
@@ -187,8 +234,26 @@ function closeModal() {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
       cart.push(productId);
       localStorage.setItem('cart', JSON.stringify(cart));
-      window.location.href = 'cart.html';  // هدایت به صفحه سبد خرید
+      updateCartCount();
+      window.location.href = 'cart.html';  // می‌تونی حذف کنی اگر نمی‌خوای بلافاصله بری سبد خرید
     }
+
+    function goToCart() {
+      window.location.href = 'cart.html';
+    }
+
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const countElem = document.getElementById('cart-count');
+      if (cart.length > 0) {
+        countElem.style.display = 'flex';
+        countElem.textContent = cart.length;
+      } else {
+        countElem.style.display = 'none';
+      }
+    }
+
+    window.onload = updateCartCount;
   </script>
 
 </body>
