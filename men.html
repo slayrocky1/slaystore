@@ -153,6 +153,34 @@ function closeModal() {
   .add-to-cart-btn:hover {
     background-color: #218838;
   }
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+</head>
+<body>
+
+  <h2>Your Shopping Cart</h2>
+  <ul id="cart-list"></ul>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cart-list');
+
+    if (cart.length === 0) {
+      cartList.innerHTML = '<li>Your cart is empty.</li>';
+    } else {
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = ${item.name} - $${item.price};
+        cartList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>
 </style>
       <a class="order-btn" href="https://wa.me/989915580973">Order from WhatsApp</a>
       <a class="order-btn" href="https://t.me/slaybrand" target="_blank">Order from Telegram</a>
