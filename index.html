@@ -549,6 +549,26 @@
 <span id="cart-count">0</span>
 </body>
 </html>
+  <script>
+  function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(${name} added to cart.);
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const countSpan = document.getElementById('cart-count');
+    if (countSpan) {
+      countSpan.textContent = cart.length;
+    }
+  }
+
+  // بلافاصله بعد لود شدن صفحه اجرا میشه
+  window.onload = updateCartCount;
+</script>
   
   <!-- بخش مدل‌ها -->
 
