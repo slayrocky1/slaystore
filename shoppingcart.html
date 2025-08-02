@@ -88,6 +88,13 @@
 
     window.onload = loadCart;
   </script>
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+  }
 
+  window.onload = updateCartCount;
+</script>
 </body>
 </html>
