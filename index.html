@@ -542,11 +542,12 @@
       const cart = JSON.parse(localStorage.getItem('cart'))  [];
       document.getElementById('cart-count').textContent = cart.length;
     }
-
-    // وقتی صفحه لود میشه تعداد محصولات رو نشون بده
-    updateCartCount();
-  </script>
-<span id="cart-count">0</span>
+    <div class="cart-icon">
+  <a href="shoppingcart.html">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </a>
+</div>
 </body>
 </html>
   <script>
@@ -572,7 +573,7 @@
   
   <!-- بخش مدل‌ها -->
 
-  <p3>worn by model<p3>
+  <p1>worn by model<p1>
   
   <div class="model-gallery">
     <img src="photo_2025-07-09_17-39-03.jpg" alt="Model 1 wearing Slay">
